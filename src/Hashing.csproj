@@ -32,6 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Logging\src\Logging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
