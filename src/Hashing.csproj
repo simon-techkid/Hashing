@@ -11,9 +11,8 @@
     <PackageTags>api;metadata</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/TheBoyLeastLikelyTo/ApiMetadataHandler</PackageProjectUrl>
-    <Description>A C# library for collecting metadata from APIs (or other sources) and saving it in existing objects.</Description>
-    <Title>ApiMetadataHandler</Title>
+    <PackageProjectUrl>https://github.com/TheBoyLeastLikelyTo/Hashing</PackageProjectUrl>
+    <Title>Hashing</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
