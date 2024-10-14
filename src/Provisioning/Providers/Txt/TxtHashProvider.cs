@@ -2,7 +2,7 @@
 
 using System.Text;
 
-namespace Hashing.Provisioning.Txt;
+namespace Hashing.Provisioning.Providers.Txt;
 
 public class TxtHashProvider(Encoding? encoding = null) : StringHashProviderBase<string?[]>(encoding)
 {

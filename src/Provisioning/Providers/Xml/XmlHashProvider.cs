@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace Hashing.Provisioning.Xml;
+namespace Hashing.Provisioning.Providers.Xml;
 
 public class XmlHashProvider(Encoding? encoding = null) : StringHashProviderBase<IEnumerable<XElement>>(encoding)
 {

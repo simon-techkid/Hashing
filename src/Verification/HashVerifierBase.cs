@@ -1,17 +1,18 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning;
+using Hashing.Provisioning.Algorithms;
+using Hashing.Provisioning.Providers;
 using System;
 
 namespace Hashing.Verification;
 
 public abstract class HashVerifierBase<T> : IHashChecker<T>
 {
-    protected abstract IHashProvider<T> HashProvider { get; }
+    protected abstract IHashingProvider<T> HashProvider { get; }
 
-    public virtual bool VerifyHash(T data, string expectedHash)
+    public bool VerifyHash(T data, string expectedHash, IHashingAlgorithm<T> algorithm)
     {
-        string actualHash = HashProvider.ComputeHash(data);
+        string actualHash = algorithm.ComputeHash(data, HashProvider);
         return string.Equals(actualHash, expectedHash, StringComparison.OrdinalIgnoreCase);
     }
 }

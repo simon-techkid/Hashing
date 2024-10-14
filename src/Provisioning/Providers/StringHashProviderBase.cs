@@ -2,14 +2,14 @@
 
 using System.Text;
 
-namespace Hashing.Provisioning;
+namespace Hashing.Provisioning.Providers;
 
 /// <summary>
 /// Central class supporting stringifying objects of type <typeparamref name="T"/> prior to being hashed.
 /// The document is converted to a <see langword="string"/> before it is converted to a <see langword="byte"/>[] and hashed.
 /// </summary>
 /// <typeparam name="T">The type of the object being hashed.</typeparam>
-public abstract class StringHashProviderBase<T>(Encoding? encoding = null) : HashProviderBase<T>
+public abstract class StringHashProviderBase<T>(Encoding? encoding = null) : IHashingProvider<T>
 {
     /// <summary>
     /// Convert an object of type <typeparamref name="T"/> to a <see langword="string"/> so that the string can serve as the hashed payload.
@@ -24,7 +24,7 @@ public abstract class StringHashProviderBase<T>(Encoding? encoding = null) : Has
     /// </summary>
     protected virtual Encoding HashedDataEncoding { get; } = encoding ?? Encoding.UTF8;
 
-    protected override byte[] ConvertToBytes(T data)
+    public byte[] ConvertToBytes(T data)
     {
         string serializedData = ConvertToString(data);
         return HashedDataEncoding.GetBytes(serializedData);
