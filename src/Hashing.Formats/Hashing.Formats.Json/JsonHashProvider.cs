@@ -1,11 +1,12 @@
 // Hashing by Simon Field
 
+using Hashing.Provisioning;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 
-namespace Hashing.Provisioning.Providers.Json;
+namespace Hashing.Formats.Json;
 
 public class JsonHashProvider(Encoding? encoding = null) : StringHashProviderBase<List<JsonDocument>>(encoding)
 {

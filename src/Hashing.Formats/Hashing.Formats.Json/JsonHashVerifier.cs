@@ -1,11 +1,11 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning.Providers;
-using Hashing.Provisioning.Providers.Json;
+using Hashing.Provisioning;
+using Hashing.Verification;
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace Hashing.Verification.Verifiers.Json;
+namespace Hashing.Formats.Json;
 
 public class JsonHashVerifier : HashVerifierBase<List<JsonDocument>>
 {

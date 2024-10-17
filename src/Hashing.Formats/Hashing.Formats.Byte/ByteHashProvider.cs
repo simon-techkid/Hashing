@@ -1,6 +1,8 @@
 // Hashing by Simon Field
 
-namespace Hashing.Provisioning.Providers;
+using Hashing.Provisioning;
+
+namespace Hashing.Formats.Byte;
 
 public class ByteHashProvider : IHashingProvider<byte[]>
 {

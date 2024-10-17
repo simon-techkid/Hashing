@@ -1,7 +1,10 @@
-﻿using Hashing.Provisioning.Providers;
+﻿// Hashing by Simon Field
+
+using Hashing.Provisioning;
+using Hashing.Verification;
 using System.IO;
 
-namespace Hashing.Verification.Verifiers;
+namespace Hashing.Formats.File;
 
 public class FileHashVerifier : HashVerifierBase<FileStream>
 {

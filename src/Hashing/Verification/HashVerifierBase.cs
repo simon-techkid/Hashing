@@ -1,7 +1,6 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning.Algorithms;
-using Hashing.Provisioning.Providers;
+using Hashing.Provisioning;
 using System;
 
 namespace Hashing.Verification;

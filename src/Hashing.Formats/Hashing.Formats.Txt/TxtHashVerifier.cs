@@ -1,9 +1,9 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning.Providers;
-using Hashing.Provisioning.Providers.Txt;
+using Hashing.Provisioning;
+using Hashing.Verification;
 
-namespace Hashing.Verification.Verifiers.Txt;
+namespace Hashing.Formats.Txt;
 
 public class TxtHashVerifier : HashVerifierBase<string?[]>
 {

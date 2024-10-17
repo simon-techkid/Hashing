@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "src\Hashing.csproj", "{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "src\Hashing\Hashing.csproj", "{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Json", "src\Hashing.Formats\Hashing.Formats.Json\Hashing.Formats.Json.csproj", "{C57880E6-FCA6-4985-874C-FB32337ED907}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Txt", "src\Hashing.Formats\Hashing.Formats.Txt\Hashing.Formats.Txt.csproj", "{6CF96E05-75C7-486A-8510-9B9906F20EC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Xml", "src\Hashing.Formats\Hashing.Formats.Xml\Hashing.Formats.Xml.csproj", "{F1E96843-10AD-478B-A908-88E1A26D39EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing.Formats.File", "src\Hashing.Formats\Hashing.Formats.File\Hashing.Formats.File.csproj", "{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing.Formats.Byte", "src\Hashing.Formats\Hashing.Formats.Byte\Hashing.Formats.Byte.csproj", "{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57880E6-FCA6-4985-874C-FB32337ED907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57880E6-FCA6-4985-874C-FB32337ED907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57880E6-FCA6-4985-874C-FB32337ED907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57880E6-FCA6-4985-874C-FB32337ED907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF96E05-75C7-486A-8510-9B9906F20EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF96E05-75C7-486A-8510-9B9906F20EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF96E05-75C7-486A-8510-9B9906F20EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF96E05-75C7-486A-8510-9B9906F20EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E96843-10AD-478B-A908-88E1A26D39EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E96843-10AD-478B-A908-88E1A26D39EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E96843-10AD-478B-A908-88E1A26D39EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E96843-10AD-478B-A908-88E1A26D39EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,6 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning.Providers;
-
-namespace Hashing.Provisioning.Algorithms;
+namespace Hashing.Provisioning;
 
 /// <summary>
 /// Unifies all classes supporting returning a hash of an object (as a string).

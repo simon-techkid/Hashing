@@ -1,8 +1,9 @@
 ﻿// Hashing by Simon Field
 
+using Hashing.Provisioning;
 using System.IO;
 
-namespace Hashing.Provisioning.Providers;
+namespace Hashing.Formats.File;
 
 public class FileHashProvider : IHashingProvider<FileStream>
 {

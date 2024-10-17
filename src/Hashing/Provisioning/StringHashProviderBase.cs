@@ -2,7 +2,7 @@
 
 using System.Text;
 
-namespace Hashing.Provisioning.Providers;
+namespace Hashing.Provisioning;
 
 /// <summary>
 /// Central class supporting stringifying objects of type <typeparamref name="T"/> prior to being hashed.

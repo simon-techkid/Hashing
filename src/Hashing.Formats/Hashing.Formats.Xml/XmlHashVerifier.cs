@@ -1,11 +1,11 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning.Providers;
-using Hashing.Provisioning.Providers.Xml;
+using Hashing.Provisioning;
+using Hashing.Verification;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace Hashing.Verification.Verifiers.Xml;
+namespace Hashing.Formats.Xml;
 
 public class XmlHashVerifier : HashVerifierBase<IEnumerable<XElement>>
 {
