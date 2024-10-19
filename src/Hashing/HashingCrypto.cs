@@ -3,7 +3,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Hashing.Provisioning;
+namespace Hashing;
 
 /// <summary>
 /// An abstract class to handle hashing using derived classes of <see cref="HashAlgorithm"/>.

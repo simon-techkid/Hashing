@@ -1,8 +1,6 @@
 // Hashing by Simon Field
 
-using Hashing.Provisioning;
-
-namespace Hashing.Verification;
+namespace Hashing;
 
 /// <summary>
 /// Unifies all classes supporting verifying a hash of an object with another hash.

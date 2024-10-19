@@ -1,6 +1,6 @@
 ﻿// Logging by Simon Field
 
-namespace Hashing.Verification;
+namespace Hashing;
 
 /// <summary>
 /// Interfaces with file import classes supporting verifying the included hashes with the subsequent data.
@@ -12,6 +12,4 @@ public interface IHashVerifier
     /// </summary>
     /// <returns>True, if the checksum matches. Otherwise, false.</returns>
     bool VerifyHash();
-
-    bool Disposed { get; }
 }

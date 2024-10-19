@@ -1,6 +1,6 @@
 ﻿// Hashing by Simon Field
 
-namespace Hashing.Provisioning;
+namespace Hashing;
 
 /// <summary>
 /// Unifies all classes supporting the conversion of custom data of type <typeparamref name="T"/> to a byte array for hashing.

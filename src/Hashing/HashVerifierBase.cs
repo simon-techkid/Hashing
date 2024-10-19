@@ -1,9 +1,8 @@
 ﻿// Hashing by Simon Field
 
-using Hashing.Provisioning;
 using System;
 
-namespace Hashing.Verification;
+namespace Hashing;
 
 public abstract class HashVerifierBase<T> : IHashChecker<T>
 {
