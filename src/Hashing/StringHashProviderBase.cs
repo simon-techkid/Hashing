@@ -6,13 +6,13 @@ namespace Hashing;
 
 /// <summary>
 /// Central class supporting stringifying objects of type <typeparamref name="T"/> prior to being hashed.
-/// The document is converted to a <see langword="string"/> before it is converted to a <see langword="byte"/>[] and hashed.
+/// The document is converted to a <see cref="string"/> before it is converted to a <see cref="byte"/>[] and hashed.
 /// </summary>
 /// <typeparam name="T">The type of the object being hashed.</typeparam>
 public abstract class StringHashProviderBase<T>(Encoding? encoding = null) : IHashingProvider<T>
 {
     /// <summary>
-    /// Convert an object of type <typeparamref name="T"/> to a <see langword="string"/> so that the string can serve as the hashed payload.
+    /// Convert an object of type <typeparamref name="T"/> to a <see cref="string"/> so that the string can serve as the hashed payload.
     /// </summary>
     /// <param name="data">An object of type <typeparamref name="T"/> to be hashed.</param>
     /// <returns>The object as a string.</returns>

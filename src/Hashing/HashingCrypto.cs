@@ -1,7 +1,6 @@
 ﻿// Hashing by Simon Field
 
 using System.Security.Cryptography;
-using System.Text;
 
 namespace Hashing;
 
@@ -20,20 +19,11 @@ public abstract class HashingCrypto<T> : IHashingAlgorithm<T>
     public string ComputeHash(T data, IHashingProvider<T> provider)
     {
         byte[] bytes = provider.ConvertToBytes(data);
-        byte[] hashBytes = GetHash(bytes);
 
-        StringBuilder builder = new();
-        for (int i = 0; i < hashBytes.Length; i++)
-        {
-            builder.Append(hashBytes[i].ToString("x2"));
-        }
-        return builder.ToString();
-    }
-
-    private byte[] GetHash(byte[] inputBytes)
-    {
         using HashAlgorithm algorithm = GetAlgorithm();
-        return algorithm.ComputeHash(inputBytes);
+        byte[] hashBytes = algorithm.ComputeHash(bytes);
+
+        return StringExtensions.ByteToHex(hashBytes);
     }
 
 }

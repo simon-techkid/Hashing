@@ -2,11 +2,11 @@
 
 using System.IO;
 
-namespace Hashing.Formats.File;
+namespace Hashing.Formats.Stream;
 
-public class FileHashProvider : IHashingProvider<FileStream>
+public class StreamHashProvider : IHashingProvider<System.IO.Stream>
 {
-    public byte[] ConvertToBytes(FileStream data)
+    public byte[] ConvertToBytes(System.IO.Stream data)
     {
         byte[] buffer = new byte[1024];
         using MemoryStream memoryStream = new();

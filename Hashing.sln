@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Txt", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Xml", "src\Hashing.Formats\Hashing.Formats.Xml\Hashing.Formats.Xml.csproj", "{F1E96843-10AD-478B-A908-88E1A26D39EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing.Formats.File", "src\Hashing.Formats\Hashing.Formats.File\Hashing.Formats.File.csproj", "{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Stream", "src\Hashing.Formats\Hashing.Formats.File\Hashing.Formats.Stream.csproj", "{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing.Formats.Byte", "src\Hashing.Formats\Hashing.Formats.Byte\Hashing.Formats.Byte.csproj", "{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Byte", "src\Hashing.Formats\Hashing.Formats.Byte\Hashing.Formats.Byte.csproj", "{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

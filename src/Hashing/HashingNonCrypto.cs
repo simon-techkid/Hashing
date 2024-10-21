@@ -1,6 +1,5 @@
 ﻿// Hashing by Simon Field
 
-using System;
 using System.IO.Hashing;
 
 namespace Hashing;
@@ -25,13 +24,7 @@ public abstract class HashingNonCrypto<T> : IHashingAlgorithm<T>
         algorithm.Append(bytes);
         byte[] hashBytes = algorithm.GetHashAndReset();
 
-        return ToHexString(hashBytes).ToLower();
-    }
-
-    private string ToHexString(byte[] data)
-    {
-        string hexString = BitConverter.ToString(data).Replace("-", "");
-        return hexString;
+        return StringExtensions.ByteToHex(hashBytes);
     }
 
 }
