@@ -1,6 +1,6 @@
-﻿// Hashing by Simon Field
+﻿// HashingHandler by Simon Field
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// Interface for classes supporting the verification of data using hashes.

@@ -1,8 +1,8 @@
-﻿// Hashing by Simon Field
+﻿// HashingHandler by Simon Field
 
 using System;
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// A class containing methods for manipulating <see cref="string"/> objects.

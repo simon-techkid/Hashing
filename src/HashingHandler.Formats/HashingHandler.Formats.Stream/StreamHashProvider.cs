@@ -1,8 +1,9 @@
 ﻿// Hashing by Simon Field
 
 using System.IO;
+using Hashing;
 
-namespace Hashing.Formats.Stream;
+namespace HashingHandler.Formats.Stream;
 
 public class StreamHashProvider : IHashingProvider<System.IO.Stream>
 {

@@ -1,8 +1,8 @@
-// Hashing by Simon Field
+// HashingHandler by Simon Field
 
 using System.Text;
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// Central class supporting stringifying objects of type <typeparamref name="T"/> prior to being hashed.

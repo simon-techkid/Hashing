@@ -1,6 +1,6 @@
-﻿// Hashing by Simon Field
+﻿// HashingHandler by Simon Field
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// Unifies classes supporting the conversion of data of type <typeparamref name="T"/> to a <see cref="byte"/>[].

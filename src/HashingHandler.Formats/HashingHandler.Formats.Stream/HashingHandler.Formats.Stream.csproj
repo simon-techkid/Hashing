@@ -20,7 +20,7 @@
 		<AssemblyVersion Condition="'$(PackageVersion)' == ''">$(Version)</AssemblyVersion>
 		<AssemblyFileVersion Condition="'$(PackageVersion)' == ''">$(Version)</AssemblyFileVersion>
 		<PackageVersion Condition="'$(PackageVersion)' == ''">$(Version)</PackageVersion>
-		<Version>1.1.0</Version>
+		<Version>1.2.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -46,7 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HashingHandler" Version="1.0.0" />
+		<PackageReference Include="HashingHandler" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

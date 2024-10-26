@@ -1,6 +1,8 @@
 ﻿// Hashing by Simon Field
 
-namespace Hashing.Formats.Byte;
+using Hashing;
+
+namespace HashingHandler.Formats.Byte;
 
 public class ByteHashVerifier : HashVerifierBase<byte[]>
 {

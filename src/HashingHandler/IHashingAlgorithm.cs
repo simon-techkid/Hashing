@@ -1,6 +1,6 @@
-﻿// Hashing by Simon Field
+﻿// HashingHandler by Simon Field
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// Unifies classes supporting returning a hash of an object of type <typeparamref name="T"/>.

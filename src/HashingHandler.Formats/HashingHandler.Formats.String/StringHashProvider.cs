@@ -1,8 +1,9 @@
 ﻿// Hashing by Simon Field
 
 using System.Text;
+using Hashing;
 
-namespace Hashing.Formats.String;
+namespace HashingHandler.Formats.String;
 
 public class StringHashProvider(Encoding? encoding = null) : StringHashProviderBase<string>(encoding)
 {

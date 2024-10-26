@@ -1,8 +1,8 @@
-﻿// Hashing by Simon Field
+﻿// HashingHandler by Simon Field
 
 using System;
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// Base class for verifying hashes of objects of type <typeparamref name="T"/>.

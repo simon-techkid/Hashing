@@ -1,6 +1,8 @@
 ﻿// Hashing by Simon Field
 
-namespace Hashing.Formats.String;
+using Hashing;
+
+namespace HashingHandler.Formats.String;
 
 public class StringHashVerifier : HashVerifierBase<string>
 {

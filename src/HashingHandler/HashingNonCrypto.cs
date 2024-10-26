@@ -1,8 +1,8 @@
-﻿// Hashing by Simon Field
+﻿// HashingHandler by Simon Field
 
 using System.IO.Hashing;
 
-namespace Hashing;
+namespace HashingHandler;
 
 /// <summary>
 /// An abstract class to handle hashing using derived classes of <see cref="NonCryptographicHashAlgorithm"/>.
