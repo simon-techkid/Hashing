@@ -1,4 +1,4 @@
-name: DocFX
+name: Publish DocFX
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-  
+
 jobs:
   publish-docs:
     name: Build DocFX
