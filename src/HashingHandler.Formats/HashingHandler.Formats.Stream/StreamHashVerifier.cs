@@ -1,6 +1,4 @@
-﻿// Hashing by Simon Field
-
-using Hashing;
+﻿// HashingHandler by Simon Field
 
 namespace HashingHandler.Formats.Stream;
 

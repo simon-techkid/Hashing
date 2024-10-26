@@ -10,17 +10,17 @@
 		<RepositoryType>git</RepositoryType>
 		<NeutralLanguage>en</NeutralLanguage>
 		<RepositoryUrl>https://github.com/simon-techkid/HashingHandler</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/simon-techkid/HashingHandler</PackageProjectUrl>
+		<PackageProjectUrl>https://simon-techkid.github.io/HashingHandler/</PackageProjectUrl>
 		<Title>HashingHandler.Formats.Byte</Title>
 		<Authors>Simon Field</Authors>
 		<Copyright>Copyright 2024 Simon Field.</Copyright>
 		<PackageTags>hashing;checksum</PackageTags>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<AssemblyVersion Condition="'$(PackageVersion)' == ''">$(Version)</AssemblyVersion>
-		<AssemblyFileVersion Condition="'$(PackageVersion)' == ''">$(Version)</AssemblyFileVersion>
+		<AssemblyVersion Condition="'$(AssemblyVersion)' == ''">$(Version)</AssemblyVersion>
+		<AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">$(Version)</AssemblyFileVersion>
 		<PackageVersion Condition="'$(PackageVersion)' == ''">$(Version)</PackageVersion>
-		<Version>1.2.0</Version>
+		<Version>1.3.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -46,7 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HashingHandler" Version="1.1.0" />
+		<PackageReference Include="HashingHandler" Version="1.2.0" />
 	</ItemGroup>
 
 </Project>
