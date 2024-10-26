@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "src\Hashing\Hashing.csproj", "{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashingHandler", "src\HashingHandler\HashingHandler.csproj", "{6D4B6F7C-9D6F-4835-8ECF-3EB43B86F4D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Stream", "src\Hashing.Formats\Hashing.Formats.Stream\Hashing.Formats.Stream.csproj", "{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Stream", "src\HashingHandler.Formats\HashingHandler.Formats.Stream\HashingHandler.Formats.Stream.csproj", "{1AAD71E3-BEDF-4FAD-ABE9-CCF526DAE0E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Byte", "src\Hashing.Formats\Hashing.Formats.Byte\Hashing.Formats.Byte.csproj", "{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.Byte", "src\HashingHandler.Formats\HashingHandler.Formats.Byte\HashingHandler.Formats.Byte.csproj", "{1BD0DCD2-D7DD-406D-BA5E-F494618D7DB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing.Formats.String", "src\Hashing.Formats\Hashing.Formats.String\Hashing.Formats.String.csproj", "{257A8681-967C-42E4-A591-E82128061E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing.Formats.String", "src\HashingHandler.Formats\HashingHandler.Formats.String\HashingHandler.Formats.String.csproj", "{257A8681-967C-42E4-A591-E82128061E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
