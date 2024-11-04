@@ -8,7 +8,7 @@ namespace HashingHandler;
 /// An abstract class to handle hashing using derived classes of <see cref="HashAlgorithm"/>.
 /// </summary>
 /// <typeparam name="T">The type of data to be hashed.</typeparam>
-public abstract class HashingCrypto<T> : IHashingAlgorithm<T>
+public abstract class HashingCrypto<T> : HashingAlgorithmBase<T>
 {
     /// <summary>
     /// Get the specific <see cref="HashAlgorithm"/> (abstract) implementing class.
@@ -16,14 +16,11 @@ public abstract class HashingCrypto<T> : IHashingAlgorithm<T>
     /// <returns>An instance of a class derived from <see cref="HashAlgorithm"/> that can be used for hashing.</returns>
     protected abstract HashAlgorithm GetAlgorithm();
 
-    public string ComputeHash(T data, IHashingProvider<T> provider)
+    protected override byte[] ComputeHash(byte[] bytes)
     {
-        byte[] bytes = provider.ConvertToBytes(data);
+        using HashAlgorithm hasher = GetAlgorithm();
+        byte[] hashBytes = hasher.ComputeHash(bytes);
 
-        using HashAlgorithm algorithm = GetAlgorithm();
-        byte[] hashBytes = algorithm.ComputeHash(bytes);
-
-        return StringExtensions.ByteToHex(hashBytes);
+        return hashBytes;
     }
-
 }
