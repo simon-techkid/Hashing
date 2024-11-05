@@ -11,7 +11,7 @@ namespace HashingHandler;
 /// An abstract class to handle hashing using derived classes of <see cref="NonCryptographicHashAlgorithm"/>.
 /// </summary>
 /// <typeparam name="T">The type of data to be hashed.</typeparam>
-public abstract class HashingNonCrypto<T> : HashingAlgorithmBase<T>
+public abstract class HashingNonCrypto<T> : HashingAlgorithmAsyncBase<T>
 {
     /// <summary>
     /// Get the specific <see cref="NonCryptographicHashAlgorithm"/> (abstract) implementing class.

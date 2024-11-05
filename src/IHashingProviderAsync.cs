@@ -17,5 +17,5 @@ public interface IHashingProviderAsync<T> : IHashingProvider<T>
     /// <param name="data">An object of type <typeparamref name="T"/> to be converted to <see cref="byte"/>[].</param>
     /// <param name="cancellationToken">A cancellation token allowing the canceling of asynchronous jobs.</param>
     /// <returns>A <see cref="Task"/> representing the conversion of this document of type <typeparamref name="T"/> in the form <see cref="byte"/>[].</returns>
-    public Task<byte[]> ConvertToBytes(T data, CancellationToken cancellationToken);
+    public Task<byte[]> ConvertToBytesAsync(T data, CancellationToken cancellationToken);
 }
