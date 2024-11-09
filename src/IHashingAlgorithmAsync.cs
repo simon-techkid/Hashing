@@ -18,5 +18,5 @@ public interface IHashingAlgorithmAsync<T> : IHashingAlgorithm<T>
     /// <param name="provider">The data interpreter.</param>
     /// <param name="cancellationToken">A cancellation token allowing the canceling of asynchronous jobs.</param>
     /// <returns>A <see cref="Task"/> including the hash computation job.</returns>
-    public Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken);
+    public Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default);
 }

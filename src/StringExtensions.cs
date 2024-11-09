@@ -7,7 +7,7 @@ namespace HashingHandler;
 /// <summary>
 /// A class containing methods for manipulating <see cref="string"/> objects.
 /// </summary>
-public static class StringExtensions
+internal static class StringExtensions
 {
     /// <summary>
     /// Convert a <see cref="byte"/>[] to a <see cref="string"/> of hexadecimal characters.

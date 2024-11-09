@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 
 namespace HashingHandler;
 
-public abstract class HashingAlgorithmBase<T> : IHashingAlgorithm<T>, IHashingAlgorithmAsync<T>
+/// <summary>
+/// Base class for hashing algorithms.
+/// </summary>
+/// <typeparam name="T">The type of objects being hashed.</typeparam>
+public abstract class HashingAlgorithmBase<T> : IHashingAlgorithmAsync<T>
 {
     /// <summary>
     /// Compute a hash of type <see cref="byte"/>[] given the data <paramref name="bytes"/> of type <see cref="byte"/>[].
@@ -29,13 +33,18 @@ public abstract class HashingAlgorithmBase<T> : IHashingAlgorithm<T>, IHashingAl
         return StringExtensions.ByteToHex(hashBytes);
     }
 
-    public async Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default)
+    public Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default)
+    {
+        return Task.Run(() => AsyncHashComputation(data, provider, cancellationToken), cancellationToken);
+    }
+
+    private async Task<string> AsyncHashComputation(T data, IHashingProvider<T> provider, CancellationToken cancellationToken)
     {
         byte[] bytes;
 
         if (provider is IHashingProviderAsync<T> asyncProvider)
         {
-            bytes = await asyncProvider.ConvertToBytes(data, cancellationToken);
+            bytes = await asyncProvider.ConvertToBytesAsync(data, cancellationToken);
         }
         else
         {
