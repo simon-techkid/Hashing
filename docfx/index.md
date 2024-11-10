@@ -2,10 +2,10 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**.
+# HashingHandler
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+A C# library containing abstract classes for hashing data of various types.
 
-## Quick Start Notes:
+View & Download this project on [NuGet](https://www.nuget.org/packages/HashingHandler/).
 
-1. Add images to the *images* folder if the file is referencing an image.
+View the source code for this project at [GitHub](https://github.com/simon-techkid/HashingHandler/).

@@ -18,6 +18,6 @@ public interface IHashVerifierAsync<T> : IHashVerifier<T>
     /// <param name="expectedHash">A <see cref="string"/> representing the expected hash for the given <paramref name="data"/> of type <typeparamref name="T"/>.</param>
     /// <param name="algorithm">The algorithm used to hash the given data of type <typeparamref name="T"/>.</param>
     /// <param name="cancellationToken">A cancellation token allowing the canceling of asynchronous jobs.</param>
-    /// <returns></returns>
+    /// <returns>True, if the hashes match. Otherwise, false.</returns>
     public Task<bool> VerifyHashAsync(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken = default);
 }
