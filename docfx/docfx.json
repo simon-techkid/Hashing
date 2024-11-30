@@ -31,17 +31,15 @@
       }
     ],
     "output": "_site",
-    "template": ["default", "templates/singulinkfx"],
-	"globalMetadata": {
-    "_appTitle": "HashingHandler",
-    "_appName": "HashingHandler",
-	"_appFooter": "<strong>Made with ♥ by Simon Field</strong>",
-    "_copyrightFooter": "© Simon Field. All rights reserved.",
-    "_enableSearch": true,
-    "_disableSideFilter": false,
-    "_enableNewTab": true,
-    "_disableContribution": false,
-    "_disableBreadcrumb": false,
-	}
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "HashingHandler",
+      "_appTitle": "HashingHandler",
+      "_enableSearch": true,
+      "pdf": true
+    }
   }
 }
