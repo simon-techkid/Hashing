@@ -28,25 +28,25 @@ public abstract class HashVerifierBase<T> : IHashVerifierAsync<T>
     /// </summary>
     public const StringComparison DefaultComparisonMethod = StringComparison.OrdinalIgnoreCase;
 
-    public bool VerifyHash(T data, string expectedHash, IHashingAlgorithm<T> algorithm)
+    public bool VerifyHash(T data, string expectedHash, IHashingAlgorithm<T> algorithm, IStringEncoding? encoding = null)
     {
-        string actualHash = algorithm.ComputeHash(data, HashProvider);
+        string actualHash = algorithm.ComputeHash(data, HashProvider, encoding);
         return string.Equals(actualHash, expectedHash, ComparisonMethod);
     }
 
-    public Task<bool> VerifyHashAsync(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken = default)
+    public Task<bool> VerifyHashAsync(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken = default, IStringEncoding? encoding = null)
     {
-        return Task.Run(() => AsyncHashVerification(data, expectedHash, algorithm, cancellationToken), cancellationToken);
+        return Task.Run(() => AsyncHashVerification(data, expectedHash, algorithm, cancellationToken, encoding), cancellationToken);
     }
 
-    private async Task<bool> AsyncHashVerification(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken)
+    private async Task<bool> AsyncHashVerification(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken, IStringEncoding? encoding)
     {
         string actualHash;
         bool result;
 
         if (algorithm is IHashingAlgorithmAsync<T> asyncAlgorithm)
         {
-            actualHash = await asyncAlgorithm.ComputeHashAsync(data, HashProvider, cancellationToken);
+            actualHash = await asyncAlgorithm.ComputeHashAsync(data, HashProvider, cancellationToken, encoding);
         }
         else
         {

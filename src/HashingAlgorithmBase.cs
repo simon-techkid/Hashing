@@ -56,6 +56,14 @@ public abstract class HashingAlgorithmBase<T> : IHashingAlgorithmAsync<T>
         }
 
         byte[] hashBytes = await ComputeHashAsync(bytes, cancellationToken);
-        return encoding.ConvertToString(hashBytes);
+        
+        if (encoding is IStringEncodingAsync asyncEncoding)
+        {
+            return await asyncEncoding.ConvertToStringAsync(hashBytes);
+        }
+        else
+        {
+            return encoding.ConvertToString(hashBytes);
+        }
     }
 }

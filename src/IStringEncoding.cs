@@ -2,6 +2,9 @@
 
 namespace HashingHandler;
 
+/// <summary>
+/// Interface for encoding <see cref="byte"/>[] to <see cref="string"/>.
+/// </summary>
 public interface IStringEncoding
 {
     /// <summary>

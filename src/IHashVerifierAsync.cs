@@ -18,6 +18,7 @@ public interface IHashVerifierAsync<T> : IHashVerifier<T>
     /// <param name="expectedHash">A <see cref="string"/> representing the expected hash for the given <paramref name="data"/> of type <typeparamref name="T"/>.</param>
     /// <param name="algorithm">The algorithm used to hash the given data of type <typeparamref name="T"/>.</param>
     /// <param name="cancellationToken">A cancellation token allowing the canceling of asynchronous jobs.</param>
+    /// <param name="encoding">An <see cref="IStringEncoding"/> representing the conversion method of the hash from <see cref="byte"/>[] to <see cref="string"/>. Default: Hexadecimal string.</param>
     /// <returns>True, if the hashes match. Otherwise, false.</returns>
-    public Task<bool> VerifyHashAsync(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken = default);
+    public Task<bool> VerifyHashAsync(T data, string expectedHash, IHashingAlgorithm<T> algorithm, CancellationToken cancellationToken = default, IStringEncoding? encoding = null);
 }
