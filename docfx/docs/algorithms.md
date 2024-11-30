@@ -157,7 +157,7 @@ algorithm = new XORHash(); // change
 algorithm = new GenericAsyncHasher(algorithm); // change
 ```
 
-### Working with implementers of `IHashingAlgorithmAsync<T>`
+### Working with `IHashingAlgorithmAsync<T>` instances
 
 The following types are `IHashingAlgorithmAsync<T>`:
 
@@ -175,9 +175,9 @@ IHashingAlgorithm<string> xor = new XORHash();
 asyncAlgorithm = new GenericAsyncHasher(xor); // change
 ```
 
-### Creating hashes using our `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>` types
+### Creating hashes using `IHashingAlgorithm<T>` instances
 
-After creating the `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>` implementing object, you can perform hashing using the methods of `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>`, respectively.
+After creating the `IHashingAlgorithm<T>` implementing object, you can perform hashing using the methods of `IHashingAlgorithm<T>`.
 
 ```
 // Create an IHashingProvider<T>, where T matches the type of your IHashingAlgorithm<T>.
@@ -189,7 +189,9 @@ string textPayload = "Hello World!";
 string hash = algorithm.ComputeHash(textPayload, provider);
 ```
 
-We can also do it asynchronously, if our `algorithm` instance is `IHashingAlgorithmAsync<string>` and our method is `async`.
+### Creating hashes using `IHashingAlgorithmAsync<T>` instances
+
+After creating the `IHashingAlgorithmAsync<T>` implementing object, you can perform asynchronous or synchronous hashing using the methods of `IHashingAlgorithmAsync<T>` or `IHashingAlgorithm<T>`, respectively.
 
 ```
 // Simulated asynchronous method below by using GetAwaiter().GetResult()

@@ -20,9 +20,9 @@ Providers in HashingHandler implement `IHashingProvider<T>` or `IHashingProvider
 
 ## Examples
 
-### Implementing `IHashingProvider<T>` and `IHashingProviderAsync<T>`
+### Implementing `IHashingProvider<T>`
 
-Below are some examples of classes that implement either `IHashingProvider<T>` or `IHashingProviderAsync<T>`.
+Below are some examples of classes that implement `IHashingProvider<T>`.
 
 #### String - `IHashingProvider<string>`
 
@@ -66,6 +66,10 @@ class DateTimeProvider : IHashingProvider<DateTime>
     }
 }
 ```
+
+### Implementing `IHashingProviderAsync<T>`
+
+Below are some examples of classes that implement `IHashingProviderAsync<T>` and `IHashingProvider<T>`.
 
 #### Stream - `IHashingProviderAsync<Stream>`
 

@@ -35,12 +35,7 @@ public abstract class HashingAlgorithmBase<T> : IHashingAlgorithmAsync<T>
         return encoding.ConvertToString(hashBytes);
     }
 
-    public Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default, IStringEncoding? encoding = null)
-    {
-        return Task.Run(() => AsyncHashComputation(data, provider, cancellationToken, encoding), cancellationToken);
-    }
-
-    private async Task<string> AsyncHashComputation(T data, IHashingProvider<T> provider, CancellationToken cancellationToken, IStringEncoding? encoding)
+    public async Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default, IStringEncoding? encoding = null)
     {
         encoding ??= new StringExtensions();
 
@@ -56,7 +51,7 @@ public abstract class HashingAlgorithmBase<T> : IHashingAlgorithmAsync<T>
         }
 
         byte[] hashBytes = await ComputeHashAsync(bytes, cancellationToken);
-        
+
         if (encoding is IStringEncodingAsync asyncEncoding)
         {
             return await asyncEncoding.ConvertToStringAsync(hashBytes);
