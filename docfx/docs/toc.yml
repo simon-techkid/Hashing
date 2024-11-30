@@ -2,3 +2,7 @@
   href: algorithms.md
 - name: Providers
   href: providers.md
+- name: Verifiers
+  href: verifiers.md
+- name: Encoders
+  href: encoders.md

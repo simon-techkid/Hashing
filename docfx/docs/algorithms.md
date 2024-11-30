@@ -1,10 +1,12 @@
+---
+title: algorithms
+created: '2024-11-11T00:29:49.195Z'
+modified: '2024-11-30T04:44:53.790Z'
+---
+
 # Algorithms
 
-Algorithms in HashingHandler implement IHashingAlgorithm or IHashingAlgorithmAsync. Implementers of IHashingAlgorithmAsync also implement IHashingAlgorithm. IHashingAlgorithm provides synchronous hashing algorithm computation, and IHashingAlgorithmAsync provides both synchronous and asynchronous computation support.
-
-`HashingAlgorithmBase` is the primary base class for implementations of `IHashingAlgorithm` and `IHashingAlgorithmAsync`. It provides support for both synchronous and asynchronous hash computation, using `protected` methods `byte[] ComputeHash()` and `Task<byte[]> ComputeHashAsync()`, as well as synchronous and asynchronous checksum computation of those hashes, using `public` methods `string ComputeHash()` and `Task<string> ComputeHashAsync()`.
-
-## Variants
+## Interfaces and Base Classes
 
 ### IHashingAlgorithm
 
@@ -14,15 +16,19 @@ Algorithms in HashingHandler implement IHashingAlgorithm or IHashingAlgorithmAsy
 
 `IHashingAlgorithmAsync<T>` allows the asynchronous use of `IHashingAlgorithm<T>`. It implements `IHashingAlgorithm<T>`, so objects capable of asynchronous computation are also able to leverage synchronous methods.
 
-## HashingCrypto and HashingNonCrypto
+### HashingAlgorithmBase
+
+`HashingAlgorithmBase` is the primary base class for implementations of `IHashingAlgorithm` and `IHashingAlgorithmAsync`. It provides support for both synchronous and asynchronous hash computation, using `protected` methods `byte[] ComputeHash()` and `Task<byte[]> ComputeHashAsync()`, as well as synchronous and asynchronous checksum computation of those hashes, using `public` methods `string ComputeHash()` and `Task<string> ComputeHashAsync()`.
+
+### HashingCrypto and HashingNonCrypto
 
 HashingHandler contains base classes for creating hashes using its `HashingCrypto` and `HashingNonCrypto` classes, allowing hash creation using [HashAlgorithm](https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm) and [NonCryptographicHashAlgorithm](https://learn.microsoft.com/dotnet/api/system.io.hashing.noncryptographichashalgorithm), respectively.
 
 Both of these classes implement `IHashingAlgorithm<string>` and `IHashingAlgorithmAsync<string>` because they inherit `HashingNonCrypto<string>` and `HashingAlgorithmBase<string>`. This allows you to create common functionality across your program by using the shared methods in different contexts.
 
-### Getting Started
+#### Getting Started
 
-To get started using `HashingCrypto` and `HashingNonCrypto` abstract classes in your program, you must create a class that implements one of these. Below are samples that allow calculation of SHA256 and XXH3 hashes using both `HashAlgorithm` and `NonCryptographicHashAlgorithm` abstract classes.
+To get started using `HashingCrypto` and `HashingNonCrypto` abstract classes in your program, you must create a class that implements one of these.
 
 In your class implementing `HashingCrypto` or `HashingNonCrypto`, you must provide a method, `GetAlgorithm()`, that returns an instance of a hashing class (ie. `SHA256` or `XxHash3`) derived from either `HashAlgorithm` or `NonCryptographicHashAlgorithm`, respectively. This instance will then be used by the base, implemented class to create hashes using those algorithms.
 
@@ -32,10 +38,15 @@ See the sample implementations below of each.
 
 After creating a class that inherits `IHashingAlgorithm<T>` (including the below samples), you are able to compute hashes for data of type `T`, using the `IHashingAlgorithm<T>.ComputeHash()` method. This method returns a `string` of the hash of the data.
 
-#### HashingCrypto
+### Implementing `IHashingAlgorithm<T>` and `IHashingAlgorithmAsync<T>`
+
+Below are some examples of classes that implement either `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>`.
+
+
+#### HashingCrypto Implementing Class Example
 
 ```
-class SHA256Hasher : HashingCrypto<string>
+class SHA256Hasher : HashingCrypto<string> // Implements IHashingAlgorithmAsync, and IHashingAlgorithm as a result.
 {
     protected override HashAlgorithm GetAlgorithm()
     {
@@ -44,22 +55,10 @@ class SHA256Hasher : HashingCrypto<string>
 }
 ```
 
-To create a hash using the SHA256 algorithm, construct this `SHA256Hasher` class.
-
-It can be cast to `IHashingAlgorithm`:
-```
-IHashingAlgorithm<string> sha256 = new SHA256Hasher();
-```
-
-It can also be cast to `IHashingAlgorithmAsync` for asynchronous use, because `HashingCrypto` implements it.
-```
-IHashingAlgorithmAsync<string> sha256Async = new SHA256Hasher();
-```
-
-#### HashingNonCrypto
+#### HashingNonCrypto Implementing Class Example
 
 ```
-class XXH3Hasher(long seed = 0) : HashingNonCrypto<string>
+class XXH3Hasher(long seed = 0) : HashingNonCrypto<string> // Implements IHashingAlgorithmAsync, and IHashingAlgorithm as a result.
 {
     private readonly long _seed = seed; // XxHash3 allows a seed, so we will add seed support to our class
 
@@ -70,31 +69,18 @@ class XXH3Hasher(long seed = 0) : HashingNonCrypto<string>
 }
 ```
 
-To create a hash using the XXH3 algorithm, construct this `XXH3Hasher` class.
+#### Create Your Own `IHashingAlgorithm<T>`
 
-It can be cast to `IHashingAlgorithm`:
-```
-IHashingAlgorithm<string> xxh3 = new XXH3Hasher();
-```
+To create your own hashing algorithm without asynchronous support, create a class implementing only `IHashingAlgorithm<T>`.
 
-It can also be cast to `IHashingAlgorithmAsync` for asynchronous use, because `HashingNonCrypto` implements it.
-```
-IHashingAlgorithmAsync<string> xxh3Async = new XXH3Hasher();
-```
-
-#### Create Your Own
-
-To create your own hashing algorithm, create a class implementing `IHashingAlgorithm` or `IHashingAlgorithmAsync`. Remember, `IHashingAlgorithmAsync` implements `IHashingAlgorithm`, so you must provide a synchronous implementation for it!
-
-I've chosen to inherit `HashingAlgorithmBase<T>`, because it provides both asynchronous and synchronous support in the base class. The below example provides a synchronous implementation.
-
-By inheriting `HashingAlgorithmBase`, you make this `XORHash` class an `IHashingAlgorithm<T>` and `IHashingAlgorithmAsync<T>`. 
+This object does not comply with `IHashingAlgorithmAsync<T>` because it does not have an asynchronous required method `ComputeHashAsync()`.
 
 The below example is a simple XOR hash algorithm:
 
 ```
-class XORHash : HashingAlgorithmBase<object>
+class XORHash : IHashingAlgorithm<string>
 {
+    // Required function
     protected override byte[] ComputeHash(byte[] bytes)
     {
         // Specify the length of the payload to be hashed.
@@ -113,25 +99,83 @@ class XORHash : HashingAlgorithmBase<object>
         }
 
         return result;
-    }    
+    }
 }
 ```
 
-To create a hash using this sample algorithm, construct this `XORHash` class.
+#### Create Your Own `IHashingAlgorithmAsync<T>`
 
-It can be cast to `IHashingAlgorithm`:
+To create your own asynchronous hashing algorithm, create a class implementing `IHashingAlgorithmAsync<T>`. Remember, `IHashingAlgorithmAsync` implements `IHashingAlgorithm`, so you must provide a synchronous implementation for your implementation!
+
+Any class implementing `IHashingAlgorithmAsync<T>` can inherit `HashingAlgorithmBase<T>`. By inheriting `HashingAlgorithmBase<T>`, you make the class an `IHashingAlgorithm<T>` and `IHashingAlgorithmAsync<T>`. 
+
+The below example is an example generic asynchronous hasher.
+
 ```
-IHashingAlgorithm<object> xor = new XORHash();
+class GenericAsyncHasher : IHashingAlgorithmAsync<string> // can inherit HashingAlgorithmBase<string>, too
+{
+    private IHashingAlgorithm<string> Hasher { get; }
+
+    public GenericAsyncHasher(IHashingAlgorithm<string> existingHasher)
+    {
+        Hasher = existingHasher;
+    }
+
+    // Required function of IHashingAlgorithmAsync, because it implements IHashingAlgorithm which requires ComputeHash.
+    protected override byte[] ComputeHash(byte[] bytes)
+    {
+        return Hasher.ComputeHash(bytes);
+    }
+
+    // Required function when only implementing IHashingAlgorithmAsync
+    // Optional function when also inheriting HashingAlgorithmBase
+    protected override Task<byte[]> ComputeHashAsync(byte[] bytes, CancellationToken cancellationToken = default)
+    {
+        //your implementation here...
+        throw new NotImplementedException();
+    }
+}
 ```
 
-It can also be cast to `IHashingAlgorithmAsync` for asynchronous use, because `HashingAlgorithmBase` implements it.
+### Working with implementers of `IHashingAlgorithm<T>`
+
+The following types are `IHashingAlgorithm<T>`:
+
+- `HashingAlgorithmBase<T>` - `SHA256Hasher` and `XXH3Hasher` in our example (and optionally, `GenericAsyncHasher`)
+- `HashingCrypto<T>` - `SHA256Hasher` in our example
+- `HashingNonCrypto<T>` - `XXH3Hasher` in our example
+- `IHashingAlgorithmAsync<T>` - `GenericAsyncHasher` in our example
+- `IHashingAlgorithm<T>` - `XORHash` in our example
+
 ```
-IHashingAlgorithmAsync<object> xor = new XORHash();
+IHashingAlgorithm<string> algorithm = new SHA256Hasher();
+// do some work...
+algorithm = new XXH3Hasher(); // change the algorithm
+// do some more work...
+algorithm = new XORHash(); // change
+// do some more work...
+algorithm = new GenericAsyncHasher(algorithm); // change
 ```
 
-Because we didn't override `HashingAlgorithmBase.ComputeHashAsync()` in the above sample implementation, any calls to `xor.ComputeHashAsync()` will use the default implementation, a `Task.Run()` of the synchronous implementation, `ComputeHash()`. If you'd like to create a specific asynchronous implementation, override `ComputeHashAsync()`.
+### Working with implementers of `IHashingAlgorithmAsync<T>`
 
-### Conclusion
+The following types are `IHashingAlgorithmAsync<T>`:
+
+- `HashingAlgorithmBase<T>` - `SHA256Hasher` and `XXH3Hasher` in our example (and optionally, `GenericAsyncHasher`)
+- `HashingCrypto<T>` - `SHA256Hasher` in our example
+- `HashingNonCrypto<T>` - `XXH3Hasher` in our example
+- `IHashingAlgorithmAsync<T>` - `GenericAsyncHasher` in our example
+
+```
+IHashingAlgorithmAsync<string> asyncAlgorithm = new SHA256Hasher();
+// do some work...
+asyncAlgorithm = new XXH3Hasher(); // change the algorithm
+// do some more work...
+IHashingAlgorithm<string> xor = new XORHash();
+asyncAlgorithm = new GenericAsyncHasher(xor); // change
+```
+
+### Creating hashes using our `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>` types
 
 After creating the `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>` implementing object, you can perform hashing using the methods of `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>`, respectively.
 
@@ -142,14 +186,14 @@ After creating the `IHashingAlgorithm<T>` or `IHashingAlgorithmAsync<T>` impleme
 // Assume we have instantiated an IHashingAlgorithm<string> called 'algorithm'
 
 string textPayload = "Hello World!";
-return algorithm.ComputeHash(textPayload, provider);
+string hash = algorithm.ComputeHash(textPayload, provider);
 ```
 
-We can also do it asynchronously, if our `algorithm` instance is `IHashingAlgorithmAsync<string>`
+We can also do it asynchronously, if our `algorithm` instance is `IHashingAlgorithmAsync<string>` and our method is `async`.
 
 ```
 // Simulated asynchronous method below by using GetAwaiter().GetResult()
-return algorithm.ComputeHashAsync(textPayload, provider).GetAwaiter().GetResult();
+string hash = await algorithm.ComputeHashAsync(textPayload, provider);
 ```
 
 Remember, `IHashingAlgorithmAsync<T>` implements `IHashingAlgorithm<T>`, so you can perform synchronous hashing using an asynchronous hashing capable object using the methods of `IHashingAlgorithm<T>` on an `IHashingAlgorithmAsync<T>`.
