@@ -19,8 +19,14 @@ public abstract class HashVerifierBase<T> : IHashVerifierAsync<T>
 
     /// <summary>
     /// The method used for comparing the actual hash with the expected hash.
+    /// The default is <see cref="DefaultComparisonMethod"/>.
     /// </summary>
-    protected virtual StringComparison ComparisonMethod => StringComparison.OrdinalIgnoreCase;
+    protected virtual StringComparison ComparisonMethod => DefaultComparisonMethod;
+
+    /// <summary>
+    /// The default string comparison method used for comparing the actual hash with the expected hash.
+    /// </summary>
+    public const StringComparison DefaultComparisonMethod = StringComparison.OrdinalIgnoreCase;
 
     public bool VerifyHash(T data, string expectedHash, IHashingAlgorithm<T> algorithm)
     {

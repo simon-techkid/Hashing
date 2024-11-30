@@ -26,20 +26,24 @@ public abstract class HashingAlgorithmBase<T> : IHashingAlgorithmAsync<T>
     /// <returns>A <see cref="Task"/> representing the hash computation that returns a hash of type <see cref="byte"/>[] given the data <paramref name="bytes"/>.</returns>
     protected virtual Task<byte[]> ComputeHashAsync(byte[] bytes, CancellationToken cancellationToken = default) => Task.Run(() => ComputeHash(bytes), cancellationToken);
 
-    public string ComputeHash(T data, IHashingProvider<T> provider)
+    public string ComputeHash(T data, IHashingProvider<T> provider, IStringEncoding? encoding = null)
     {
+        encoding ??= new StringExtensions();
+
         byte[] bytes = provider.ConvertToBytes(data);
         byte[] hashBytes = ComputeHash(bytes);
-        return StringExtensions.ByteToHex(hashBytes);
+        return encoding.ConvertToString(hashBytes);
     }
 
-    public Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default)
+    public Task<string> ComputeHashAsync(T data, IHashingProvider<T> provider, CancellationToken cancellationToken = default, IStringEncoding? encoding = null)
     {
-        return Task.Run(() => AsyncHashComputation(data, provider, cancellationToken), cancellationToken);
+        return Task.Run(() => AsyncHashComputation(data, provider, cancellationToken, encoding), cancellationToken);
     }
 
-    private async Task<string> AsyncHashComputation(T data, IHashingProvider<T> provider, CancellationToken cancellationToken)
+    private async Task<string> AsyncHashComputation(T data, IHashingProvider<T> provider, CancellationToken cancellationToken, IStringEncoding? encoding)
     {
+        encoding ??= new StringExtensions();
+
         byte[] bytes;
 
         if (provider is IHashingProviderAsync<T> asyncProvider)
@@ -52,6 +56,6 @@ public abstract class HashingAlgorithmBase<T> : IHashingAlgorithmAsync<T>
         }
 
         byte[] hashBytes = await ComputeHashAsync(bytes, cancellationToken);
-        return StringExtensions.ByteToHex(hashBytes);
+        return encoding.ConvertToString(hashBytes);
     }
 }
